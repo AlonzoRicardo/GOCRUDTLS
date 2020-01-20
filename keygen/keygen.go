@@ -10,7 +10,7 @@ import (
 )
 
 // GenerateKey comments
-func GenerateKey(s string) string {
+func GenerateKey() string {
 	uuid := uuid_gen.NewV4()
 	fmt.Printf("UUIDv4: %s\n", uuid)
 
