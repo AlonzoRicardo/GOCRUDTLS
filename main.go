@@ -2,12 +2,14 @@ package main
 
 import (
 	"crypto/tls"
-	"go_auth/keygen"
+	// "go_auth/keygen"
 	"go_auth/user"
 	"log"
 	"net/http"
 	"os"
 	"time"
+
+	"github.com/gorilla/mux"
 )
 
 var (
@@ -20,17 +22,18 @@ func main() {
 	// For loggin all requests
 	logger := log.New(os.Stdout, "go_auth ", log.LstdFlags|log.Lshortfile)
 
-	mux := http.NewServeMux()
-	srv := newServer(mux, serviceAddr)
+	r := mux.NewRouter()
+	// mux := http.NewServeMux()
+	srv := newServer(r, serviceAddr)
 	userHandler := user.NewHandlers(logger)
-	userHandler.SetupRoutes(mux)
+	userHandler.SetupRoutes(r)
 
-	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		uuid := keygen.GenerateKey()
-		w.Header().Set("Content-Type", "text/plain")
-		w.WriteHeader(http.StatusOK)
-		w.Write([]byte(uuid))
-	})
+	// mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	// 	uuid := keygen.GenerateKey()
+	// 	w.Header().Set("Content-Type", "text/plain")
+	// 	w.WriteHeader(http.StatusOK)
+	// 	w.Write([]byte(uuid))
+	// })
 
 	err := srv.ListenAndServeTLS(certFile, keyFile)
 	if err != nil {
@@ -38,7 +41,7 @@ func main() {
 	}
 }
 
-func newServer(mux *http.ServeMux, serverAddr string) *http.Server {
+func newServer(router *mux.Router, serverAddr string) *http.Server {
 	tlsConfig := &tls.Config{
 		// Causes servers to use Go's default cipher suite preferences,
 		// which are tuned to avoid attacks. Does nothing on clients.
@@ -66,7 +69,7 @@ func newServer(mux *http.ServeMux, serverAddr string) *http.Server {
 		WriteTimeout: 10 * time.Second,
 		IdleTimeout:  120 * time.Second,
 		TLSConfig:    tlsConfig,
-		Handler:      mux,
+		Handler:      router,
 	}
 
 	return srv

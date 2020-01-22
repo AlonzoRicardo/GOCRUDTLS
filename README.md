@@ -3,6 +3,7 @@ go auth server
 
 # To Do
 [x] - Understand generate and configure certification files
+[] - Configure a proper router to match HTTP verbs to given handlers
 [] - Create a user End Point
 [] - Get user End Point
 [] - Update user End Point
@@ -23,7 +24,8 @@ go auth server
 [Exposing Go to the Internet](https://blog.cloudflare.com/exposing-go-on-the-internet/)    
 [Style guideline for Go packages](https://rakyll.org/style-packages/)   
 [Creating and managing CA certs with mkcert](https://github.com/FiloSottile/mkcert)      
-[GO TLS server examples](https://gist.github.com/denji/12b3a568f092ab951456)     
+[GO TLS server examples](https://gist.github.com/denji/12b3a568f092ab951456)
+[ORM sqlite](https://www.youtube.com/watch?v=VAGodyl84OY) - [code](https://gist.github.com/elliotforbes/e241eaa8cc9d7bf3ec75b333e891d422)
 
 # cURL
 Create a self-signed certificate and tell cURL where to look for it
