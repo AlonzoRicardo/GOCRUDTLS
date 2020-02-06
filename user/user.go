@@ -105,7 +105,7 @@ func (h *Handlers) SetupRoutes(router *mux.Router) {
 
 // InitialMigration migrate user schema
 func InitialMigration() {
-	db, err := gorm.Open("sqlite3", "users.db")
+	db, err := gorm.Open("sqlite3", "db/data/users.db")
 	if err != nil {
 		fmt.Println(err.Error())
 		panic("failed to connect database")
@@ -124,7 +124,7 @@ func NewHandlers(logger *log.Logger) *Handlers {
 }
 
 func connectDB() *gorm.DB {
-	db, err := gorm.Open("sqlite3", "users.db")
+	db, err := gorm.Open("sqlite3", "db/data/users.db")
 	if err != nil {
 		panic("failed to connect database")
 	}
