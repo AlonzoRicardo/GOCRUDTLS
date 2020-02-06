@@ -21,15 +21,14 @@ var (
 func main() {
 	// For loggin all requests
 	logger := log.New(os.Stdout, "go_auth ", log.LstdFlags|log.Lshortfile)
-
+	user.InitialMigration()
 	r := mux.NewRouter()
-	// mux := http.NewServeMux()
 	srv := newServer(r, serviceAddr)
 	userHandler := user.NewHandlers(logger)
 	userHandler.SetupRoutes(r)
 
 	// mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-	// 	uuid := keygen.GenerateKey()
+	// 	// uuid := keygen.GenerateKey()
 	// 	w.Header().Set("Content-Type", "text/plain")
 	// 	w.WriteHeader(http.StatusOK)
 	// 	w.Write([]byte(uuid))

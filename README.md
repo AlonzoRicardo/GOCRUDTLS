@@ -2,30 +2,39 @@
 go auth server
 
 # To Do
-[x] - Understand generate and configure certification files
-[] - Configure a proper router to match HTTP verbs to given handlers
-[] - Create a user End Point
-[] - Get user End Point
-[] - Update user End Point
-[] - Delete user End Point
-[] - Fetch all users End Point
-[] - Dockerize application
-[] - Persist user data in MySQL instance
-[] - Configure a docker compose for all service instances
-[] - Create a CI/CD pipeline for the project
-[] - Deploy to a cloud server
-[] - Implement a client simulator to create data flow
-[] - Implement Metrics with prometheus and grafana
-[] - Integrate log processing and querying tools like ELK stack or similar
+[x] - Understand generate and configure certification files       
+[x] - Configure a proper router to match HTTP verbs to given handlers      
+[x] - Persist user data in db instance   
+    [x] - Raise db docker container      
+    [x] - Connect with go_auth app       
+    [x] - Migrate user schema          
+    [] - Connect with endpoints and make operations             
+        [x] - Create a user End Point               
+            [] - Encrypt user password              
+            [x] - Create user UUID and store in db              
+        [] - Get user End Point             
+        [x] - Update user End Point                 
+        [x] - Delete user End Point                 
+        [x] - Fetch all users End Point                 
+[] - Refactor to separate handlers from user logic              
+[] - Create a QR code and send email                
+[] - Dockerize application                  
+    [] - Configure a docker compose for all service instances               
+[] - Create a CI/CD pipeline for the project                
+[] - Deploy to a cloud server               
+[] - Implement a client simulator to create data flow               
+[] - Implement Metrics with prometheus and grafana                  
+[] - Integrate log processing and querying tools like ELK stack or similar                  
 
 ## Helper Content
-[Production Ready Go Service in 30 Minutes](https://www.youtube.com/watch?v=wxkEQxvxs3w)     
-[gopherconuk](https://github.com/dlsniper/gopherconuk)       
-[Exposing Go to the Internet](https://blog.cloudflare.com/exposing-go-on-the-internet/)    
-[Style guideline for Go packages](https://rakyll.org/style-packages/)   
-[Creating and managing CA certs with mkcert](https://github.com/FiloSottile/mkcert)      
-[GO TLS server examples](https://gist.github.com/denji/12b3a568f092ab951456)
-[ORM sqlite](https://www.youtube.com/watch?v=VAGodyl84OY) - [code](https://gist.github.com/elliotforbes/e241eaa8cc9d7bf3ec75b333e891d422)
+[Production Ready Go Service in 30 Minutes](https://www.youtube.com/watch?v=wxkEQxvxs3w)         
+[gopherconuk](https://github.com/dlsniper/gopherconuk)         
+[Exposing Go to the Internet](https://blog.cloudflare.com/exposing-go-on-the-internet/)      
+[Style guideline for Go packages](https://rakyll.org/style-packages/)       
+[Creating and managing CA certs with mkcert](https://github.com/FiloSottile/mkcert)       
+[GO TLS server examples](https://gist.github.com/denji/12b3a568f092ab951456)        
+[ORM sqlite](https://www.youtube.com/watch?v=VAGodyl84OY) - [code](https://gist.github.com/elliotforbes/e241eaa8cc9d7bf3ec75b333e891d422)       
+[sqlite3 in a docker image](https://devopsheaven.com/sqlite/backup/restore/dump/databases/docker/2017/10/10/sqlite-backup-restore-docker.html)
 
 # cURL
 Create a self-signed certificate and tell cURL where to look for it
