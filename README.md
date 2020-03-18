@@ -1,30 +1,5 @@
 # go_auth
-go auth server
-
-# To Do
-[x] - Understand generate and configure certification files       
-[x] - Configure a proper router to match HTTP verbs to given handlers      
-[x] - Persist user data in db instance   
-    [x] - Raise db docker container      
-    [x] - Connect with go_auth app       
-    [x] - Migrate user schema          
-    [] - Connect with endpoints and make operations             
-        [x] - Create a user End Point               
-            [] - Encrypt user password              
-            [x] - Create user UUID and store in db              
-        [] - Get user End Point             
-        [x] - Update user End Point                 
-        [x] - Delete user End Point                 
-        [x] - Fetch all users End Point                 
-[] - Refactor to separate handlers from user logic              
-[] - Create a QR code and send email                
-[] - Dockerize application                  
-    [] - Configure a docker compose for all service instances               
-[] - Create a CI/CD pipeline for the project                
-[] - Deploy to a cloud server               
-[] - Implement a client simulator to create data flow               
-[] - Implement Metrics with prometheus and grafana                  
-[] - Integrate log processing and querying tools like ELK stack or similar                  
+go CRUD TLS server + SQLITE3 db
 
 ## Helper Content
 [Production Ready Go Service in 30 Minutes](https://www.youtube.com/watch?v=wxkEQxvxs3w)         
